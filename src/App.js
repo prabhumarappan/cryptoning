@@ -21,8 +21,6 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/historical" element={<Historical />} />
-          <Route path="/tweets" element={<Tweets />} />
         </Routes>
       </Container>
     </BrowserRouter>
