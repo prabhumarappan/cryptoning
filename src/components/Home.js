@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { Top10 } from './Top10';
 import '../css/Home.css';
+var axios = require('axios');
+
+const { REACT_APP_CMC_API_KEY } = process.env; 
 
 class Home extends Component {
 
@@ -15,6 +18,29 @@ class Home extends Component {
 	
 	componentDidMount = () => {
 		// api call and add that to state
+
+		if (JSON.parse(localStorage.getItem('cmcdata')) == null) {
+			var config = {
+				method: 'get',
+				url: 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10',
+				headers: { 
+					'X-CMC_PRO_API_KEY': REACT_APP_CMC_API_KEY
+				}
+			};
+
+			axios(config)
+			.then(function (response) {
+				localStorage.setItem('cmcdata', JSON.stringify(response.data.data));
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		} else {
+			console.log("FOUND DATA IN LOCAL STORE");
+		}
+		
+		this.setState({latestListings: JSON.parse(localStorage.getItem('cmcdata'))});
+
 		setTimeout(() => this.setState({isLoading: false}), 1000);
 	}
 
