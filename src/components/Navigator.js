@@ -12,8 +12,6 @@ class Navigator extends Component {
             <Navbar.Brand href="/">Cryptoning</Navbar.Brand>
             <Nav className="ml-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/historical">Historical</Nav.Link>
-              <Nav.Link href="/tweets">Tweets</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
