@@ -22,7 +22,7 @@ class Home extends Component {
 		if (JSON.parse(localStorage.getItem('cmcdata')) == null) {
 			var config = {
 				method: 'get',
-				url: 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10',
+				url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10',
 				headers: { 
 					'X-CMC_PRO_API_KEY': REACT_APP_CMC_API_KEY
 				}
