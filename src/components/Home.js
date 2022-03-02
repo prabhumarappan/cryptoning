@@ -20,15 +20,7 @@ class Home extends Component {
 		// api call and add that to state
 
 		if (JSON.parse(localStorage.getItem('cmcdata')) == null) {
-			var config = {
-				method: 'get',
-				url: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10',
-				headers: { 
-					'X-CMC_PRO_API_KEY': REACT_APP_CMC_API_KEY
-				}
-			};
-
-			axios(config)
+			axios.get('/.netlify/functions/getLatestCMC')
 			.then(function (response) {
 				localStorage.setItem('cmcdata', JSON.stringify(response.data.data));
 			})
