@@ -63,7 +63,7 @@ class Home extends Component {
 			<Container>
 			<Row className='mt-4'>
 				<Col md="8" sm="12" xs="12">
-				<h3>Today's Cryptocurrency Prices by Market Cap</h3>
+				<h1>Today's Cryptocurrency Prices by Market Cap</h1>
 				</Col>
 				<Col xs="12">
 				<Top10 data={this.state.latestListings}></Top10>
