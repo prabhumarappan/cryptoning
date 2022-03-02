@@ -1,23 +1,20 @@
 const axios = require('axios');
 
-const API_ENDPOINT = 'https://api.twitter.com/2/tweets/search/recent?query=';
+const API_ENDPOINT = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10';
 
 exports.handler = async (event, context) => {
   try {
-    const params = event.queryStringParameters;
-    const slug = params.slug || "blockchain";
-    let NEW_API_ENDPOINT = API_ENDPOINT + slug;
 
     var config = {
         method: 'get',
-        url: NEW_API_ENDPOINT,
+        url: API_ENDPOINT,
         headers: { 
-          'Authorization': process.env.REACT_APP_TWITTER_BEARER_TOKEN
+            'X-CMC_PRO_API_KEY': process.env.REACT_APP_CMC_API_KEY
         }
     };
     
     const response = await axios(config);
-    const data = response.data;
+    const data = response.data.data;
     return { statusCode: 200, body: JSON.stringify({ data }) };
   } catch (error) {
     console.log(error);
