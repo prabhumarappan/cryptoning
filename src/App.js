@@ -21,6 +21,7 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/tweets/:slug" element={<Tweets />} />
         </Routes>
       </Container>
     </BrowserRouter>
