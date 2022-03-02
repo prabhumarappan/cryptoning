@@ -4,8 +4,6 @@ import { Top10 } from './Top10';
 import '../css/Home.css';
 var axios = require('axios');
 
-const { REACT_APP_CMC_API_KEY } = process.env; 
-
 class Home extends Component {
 
 	constructor(props) {
@@ -54,8 +52,8 @@ class Home extends Component {
 		<>
 			<Container>
 			<Row className='mt-4'>
-				<Col md="8" sm="12" xs="12">
-				<h1>Today's Cryptocurrency Prices by Market Cap</h1>
+				<Col md="12" sm="12" xs="12">
+				<h1 className='text-center'>Today's Cryptocurrency Prices by Market Cap</h1>
 				</Col>
 				<Col xs="12">
 				<Top10 data={this.state.latestListings}></Top10>
