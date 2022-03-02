@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, { Component } from 'react'
 import { Table } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
+import Nav from 'react-bootstrap/Nav'
 
 
 class Top10 extends Component {
@@ -50,6 +50,10 @@ class Top10 extends Component {
         return imageUrl
     }
 
+    getCurrencyHref = (name) => {
+        return `/currencies/${name}`;
+    }
+
 
     getTableContents = () => {
         return (
@@ -59,7 +63,7 @@ class Top10 extends Component {
                     this.state.latestListings.map(item => (
                         <tr key={item.id}>
                             <td>{item.cmc_rank}</td>
-                            <td><Image src={this.getThumbnailImageURL(item.id)} key={item.id} width={30} height={30}></Image> <span className='ml-5'>{item.name}</span></td>
+                            <td><Nav.Link href={this.getCurrencyHref(item.slug)}><Image src={this.getThumbnailImageURL(item.id)} key={item.id} width={30} height={30} alt={item.name + ' logo'}></Image> <span className='ml-5'>{item.name}</span></Nav.Link></td>
                             <td>${this.getRoundFigure(item.quote.USD.price)}</td>
                             <td>{this.showPercentChange(item.quote.USD.percent_change_24h)}</td>
                             <td>{this.showPercentChange(item.quote.USD.percent_change_7d)}</td>
