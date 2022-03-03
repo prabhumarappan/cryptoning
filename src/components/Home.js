@@ -10,7 +10,7 @@ class Home extends Component {
 		super(props);
 		this.state = {
 			isLoading: true,
-			latestListings: null
+			latestListings: []
 		}
 	}
 	
@@ -19,19 +19,23 @@ class Home extends Component {
 
 		if (JSON.parse(localStorage.getItem('cmcdata')) == null) {
 			axios.get('/.netlify/functions/getLatestCMC')
-			.then(function (response) {
+			.then((response) => {
 				localStorage.setItem('cmcdata', JSON.stringify(response.data.data));
+
+				this.setState({latestListings: response.data.data}, () => {
+					this.setState({isLoading: false});
+				});
 			})
-			.catch(function (error) {
+			.catch((error) => {
 				console.log(error);
 			});
 		} else {
 			console.log("FOUND DATA IN LOCAL STORE");
+			
+			this.setState({latestListings: JSON.parse(localStorage.getItem('cmcdata'))}, () => {
+				this.setState({isLoading: false});
+			});
 		}
-		
-		this.setState({latestListings: JSON.parse(localStorage.getItem('cmcdata'))});
-
-		setTimeout(() => this.setState({isLoading: false}), 1000);
 	}
 
 	render() {
