@@ -1,0 +1,61 @@
+.card__container {
+  margin: 0.5rem 1rem;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px 0px rgba(218, 218, 218, 0.75);
+}
+
+.card__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card__title h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.card__title img {
+  width: 25px;
+  height: 25px;
+}
+
+.card__price {
+  margin-top: 2rem;
+  font-size: 25px;
+  color: #272728;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.price__symbol {
+  color: #c9c9ca;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 484px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .nav__items,
+  .nav__account {
+    display: none !important;
+  }
+}
+
+@media (min-width: 484px) and (max-width: 820px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav__items,
+  .nav__account {
+    display: none !important;
+  }
+}
