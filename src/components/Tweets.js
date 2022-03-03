@@ -9,30 +9,32 @@ function Tweets() {
   const [tweetIds, setTweetIds] = useState([]);
 
   useEffect(() => {
-    setTweetIds(tweetId => fetchTweets());
+    fetchTweets();
   }, [])
 
   function fetchTweets() {
     if (JSON.parse(localStorage.getItem('tweetdata')) == null) {
       axios.get(`/.netlify/functions/getTweets?query=${slug}`)
-        .then(function (response) {
+        .then((response) => {
           let tweets = response.data.data.data;
-          console.log(tweets);
-          let localTweet = [];
+
+          let localTweets = [];
           for (var i = 0; i < tweets.length; i ++) {
-            localTweet.push(tweets[i]);
+            localTweets.push(tweets[i]);
           }
-          localStorage.setItem('tweetdata', JSON.stringify(localTweet));
+          localStorage.setItem('tweetdata', JSON.stringify(localTweets));
+
+          setTweetIds(localTweets);
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
         });
     }
     else {
 			console.log("FOUND TWEETS IN LOCAL STORE");
+      let localTweets = JSON.parse(localStorage.getItem('tweetdata'));
+      setTweetIds(localTweets);
 		}
-    let localTweetIds = JSON.parse(localStorage.getItem('tweetdata'));
-    return localTweetIds;
   }
 
   return (
@@ -45,7 +47,7 @@ function Tweets() {
             {
             tweetIds.map(item => {
               return (
-              <Col xs="12" sm="12" md="6" lg="4">
+              <Col xs="12" sm="12" md="6" lg="4" key={item.id}>
                 <TwitterTweetEmbed options={{}} tweetId={item.id} key={item.id} />
               </Col>
               )
