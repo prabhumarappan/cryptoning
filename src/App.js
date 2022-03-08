@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter,
@@ -10,6 +9,7 @@ import { Home } from './components/Home';
 import { Historical } from './components/Historical';
 import { Tweets } from './components/Tweets';
 import { Container } from 'react-bootstrap';
+import { About } from './components/About';
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tweets/:slug" element={<Tweets />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Container>
     </BrowserRouter>
