@@ -10,6 +10,7 @@ function Tweets() {
 
   useEffect(() => {
     fetchTweets();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function fetchTweets() {
