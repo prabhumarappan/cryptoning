@@ -1,6 +1,5 @@
-export {default as Historical} from './Historical'
-export {Card} from './Card'
-export {Banner} from './Banner'
-export {CurrencyNavBar} from './CurrencyNavBar'
-export {Graph} from './Graph'
-export {Market} from './Market'
+export { Card } from "./Card";
+export { Banner } from "./Banner";
+export { CurrencyNavBar } from "./CurrencyNavBar";
+export { Graph } from "./Graph";
+export { Market } from "./Market";
