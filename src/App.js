@@ -17,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tweets/:slug" element={<Tweets />} />
+            <Route path="/historical/:symbol" element={<Historical />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </Container>
