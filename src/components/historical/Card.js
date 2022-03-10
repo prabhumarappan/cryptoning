@@ -1,6 +1,9 @@
 import React from "react";
 
 import "../../style/card.css";
+//This is the file that contains information related to cards on historical page
+//it is using feteched data from cryptocompare to show marketcap, fully dilluted, volume
+//and circulating supply information. The styling for this file is done using card.css
 
 export function Card({ title, price }) {
   return (

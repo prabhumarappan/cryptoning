@@ -1,5 +1,9 @@
 import React from "react";
 
+//This is the file to display market section of the page. It uses the API data to
+//display market, exchange rate, price and 24 hours exchange volume for that currency
+//It is using a simple table and all information are displayed using map
+
 export function Market({ marketList }) {
   return (
     <div className="market__container">

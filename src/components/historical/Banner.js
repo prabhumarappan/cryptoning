@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 
 import "../../style/banner.css";
 
+//This is file to display coin related information such as full name, id and internals
+//It is using the fetched url data and storing it in coinInfo and then displaying those
+//data on banner section of page accordingly. It is linked with banner.css file for styling
+//purposes.
+
 export function Banner({ AggregatedData, CoinInfo, Exchanges }) {
   const { PRICE } = AggregatedData;
   const { FullName, Id, ImageUrl, Internal } = CoinInfo;
@@ -17,7 +22,7 @@ export function Banner({ AggregatedData, CoinInfo, Exchanges }) {
             <li className="breadcrumb__item" key={i}>
               <Link
                 to={
-                  item == "Cryptocurrencies" ? "/" : `/historical/${Internal}`
+                  item === "Cryptocurrencies" ? "/" : `/historical/${Internal}`
                 }
               >
                 <span
@@ -54,7 +59,7 @@ export function Banner({ AggregatedData, CoinInfo, Exchanges }) {
             <p>Exchanges</p>
             <ul className="currency__tags">
               {Exchanges.map((item, key) => {
-                if (tagcount > 3) return;
+                if (tagcount > 3) return false;
                 tagcount += 1;
                 return (
                   <li key={key} className="currency__tag">

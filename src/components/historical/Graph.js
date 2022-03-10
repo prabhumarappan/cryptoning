@@ -8,30 +8,37 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useParams } from "react-router-dom";
+//This file is for linechart section of the page. It is using chartjs to display
+//historical data of selected coin. It accessing data from cryptocompare API
+//for past 6 months and displaying it accordingly.
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement);
 
 export function Graph() {
   const [chartInfo, setChartInfo] = useState();
   const { symbol } = useParams();
-  
-  const fetch_api = async () => {
-    const response = await fetch(
-      `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${symbol.toUpperCase()}&tsym=USD&limit=180&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`
-    );
-    const json = await response.json();
-    const data = json.Data.Data;
-    const times = data.map((obj) => obj.time);
-    const prices = data.map((obj) => obj.high);
-    setChartInfo({
-      times,
-      prices,
-    });
-  };
 
   useEffect(() => {
+    const fetch_api = async () => {
+      const response = await fetch(
+        `https://min-api.cryptocompare.com/data/v2/histoday?fsym=${symbol.toUpperCase()}&tsym=USD&limit=180&api_key=0646cc7b8a4d4b54926c74e0b20253b57fd4ee406df79b3d57d5439874960146`
+      );
+
+      //fetching API from cryptocompare for 6 months data. The past data range can be changed by
+      //changing USD&limit=180. 180 represents number of days here so in order to show data for
+      //past 1 month we can use 30 instead of 180.
+
+      const json = await response.json();
+      const data = json.Data.Data;
+      const times = data.map((obj) => obj.time);
+      const prices = data.map((obj) => obj.high);
+      setChartInfo({
+        times,
+        prices,
+      });
+    };
     fetch_api();
-  }, []);
+  }, [symbol]);
 
   const data = {
     labels: chartInfo?.times,
@@ -73,7 +80,7 @@ export function Graph() {
   return (
     <div className="graph__container">
       <Line data={data} options={options} />
-      <p id='graph__x'>
+      <p id="graph__x">
         <span>OCT</span>
         <span>NOV</span>
         <span>DEC</span>
@@ -84,4 +91,3 @@ export function Graph() {
     </div>
   );
 }
-
