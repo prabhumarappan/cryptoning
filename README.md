@@ -26,6 +26,11 @@ Why? Because investors who actively engage in crypto with many types of cryptocu
 4. Install netlify cli using `npm install netlify-cli -g`
 5. Run the local development server by running `netlify dev`
 
+## How to deploy?
+1. Link the project to a netlify project
+2. Make sure you add the environment variables from .env in Netlify UI
+3. Run `netlify deploy -p`
+
 ## Demo
 https://vibrant-liskov-fc7f33.netlify.app/
 
