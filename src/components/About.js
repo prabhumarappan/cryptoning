@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Button, Image } from 'react-bootstrap';
 
+// Component to show the about developers section
 class About extends Component {
   render() {
     return (

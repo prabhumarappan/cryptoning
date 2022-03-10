@@ -1,4 +1,4 @@
-//import "./App.css";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigator } from "./components/Navigator";
 import { Home } from "./components/Home";
@@ -6,6 +6,7 @@ import Historical from "./components/historical/Historical";
 import { Container } from "react-bootstrap";
 import { About } from "./components/About";
 
+// functional component which will load the navbar and routes
 function App() {
   return (
     <>
