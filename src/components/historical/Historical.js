@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { Banner, Card, CurrencyNavBar, Graph, Market } from "./index";
+import { Tweets } from '../Tweets';
 import "../../style/cryptomain.css";
 import BarGraph from "./BarGraph";
 
@@ -36,6 +37,7 @@ function Historical(props) {
     { title: "Line chart", component: <Graph /> },
     { title: "Bar chart", component: <BarGraph /> },
     { title: "Market", component: <Market marketList={info?.Exchanges} /> },
+    { title: "Tweets", component: <Tweets slug = {symbol} /> },
   ];
   const [activePage, changePage] = useState(pages[0]);
 
@@ -46,7 +48,7 @@ function Historical(props) {
       );
       const { Data, Response } = await response.json();
 
-      if (Response == "Success") {
+      if (Response === "Success") {
         setInfo(Data);
       }
     } catch (error) {
