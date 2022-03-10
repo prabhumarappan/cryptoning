@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 var axios = require('axios');
 
-function Tweets() {
-  const {slug } = useParams();
+// functional component to display tweets for a particular coin
+const Tweets = (props) => {
+  // if slug isn't passed, it is set to BTC by default
+  let slug = 'BTC';
+
+  // if the props exists, setting slug 
+  if (props != null && props.slug) {
+    slug = props.slug;
+  }
+  
   const [tweetIds, setTweetIds] = useState([]);
 
+  // useEffect is being used like a lifecycle methods
   useEffect(() => {
     fetchTweets();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // function to fetch tweets for a particular tweet 
+  // and set the  setter to set the state
   function fetchTweets() {
     if (JSON.parse(localStorage.getItem('tweetdata')) == null) {
       axios.get(`/.netlify/functions/getTweets?query=${slug}`)
@@ -38,6 +48,7 @@ function Tweets() {
 		}
   }
 
+  // render function to return the wireframe to dispaly tweets
   return (
     <>
 			<Container >

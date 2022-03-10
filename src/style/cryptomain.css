@@ -1,0 +1,65 @@
+.currency__nav__bar {
+  overflow: auto;
+}
+
+.crypo__main {
+  margin: 2rem 1.4rem;
+}
+
+.nav__lists {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.nav__item {
+  padding: 0.4rem 1rem;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.main_active {
+  background-color: rgb(56, 97, 251);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.graph__container,
+.market__container {
+  margin: 1rem;
+}
+
+.graph__container canvas {
+  width: 100% !important;
+  height: 450px !important;
+}
+
+.loading {
+  text-align: center;
+  font-size: larger;
+  margin-top: 25px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table td,
+.table th {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+}
+
+.table_color:nth-child(even) {
+  background-color: #d1e8f5;
+}
+
+#graph__x {
+  display: flex;
+  justify-content: space-evenly;
+}
