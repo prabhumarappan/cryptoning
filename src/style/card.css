@@ -60,3 +60,111 @@
     display: none !important;
   }
 }
+
+a {
+  text-decoration: none !important;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 484px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .currency__content {
+    margin-left: 2px;
+  }
+
+  .banner_container {
+    margin: 1rem !important;
+  }
+
+  .currency__rate {
+    font-size: 16px !important;
+    white-space: pre-line;
+  }
+
+  .breadcrumb {
+    margin: 0;
+  }
+  .breadcrumb__lists a span {
+    font-size: 13px !important ;
+  }
+  .currency__tag__container {
+    max-width: 250px !important;
+  }
+  .currency__tags > li {
+    font-size: 12px !important;
+  }
+
+  .currency__view__all a {
+    font-size: 12px !important;
+  }
+  .card__container {
+    margin: 2rem;
+  }
+
+  .graph__container canvas {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 484px) and (max-width: 820px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav__items,
+  .nav__account {
+    display: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .table thead {
+    display: none;
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    margin-bottom: 15px;
+  }
+  .table td {
+    padding-left: 50%;
+    text-align: left;
+    position: relative;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+}

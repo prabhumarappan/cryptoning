@@ -12,7 +12,7 @@ export function Market({ marketList }) {
         </thead>
         <tbody>
           {marketList?.map((item, key) => (
-            <tr key={key}>
+            <tr key={key} class="table_color">
               <td data-label="No">{key + 1}</td>
               <td data-label="Market">{item.MARKET}</td>
               <td data-label="Price">${item.PRICE.toFixed(2)}</td>
