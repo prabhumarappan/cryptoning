@@ -16,7 +16,7 @@ function Historical(props) {
 
   const card_items = [
     {
-      title: "Market Cop",
+      title: "Market Cap",
       price: info?.AggregatedData.MKTCAP || info?.AggregatedData.VOLUMEHOUR,
       //either use MKTCAP data if not availabe then use volume hour
     },
