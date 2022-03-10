@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 var axios = require('axios');
 
-function Tweets() {
-  const {slug } = useParams();
+const Tweets = (props) => {
+  let slug = 'BTC';
+
+  if (props != null && props.slug) {
+    slug = props.slug;
+  }
+  
   const [tweetIds, setTweetIds] = useState([]);
 
   useEffect(() => {
