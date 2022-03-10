@@ -55,16 +55,17 @@
   font-size: 16px;
 }
 
-.table th {
+/* .table th {
   background-color: #92c9e6;
   color: #ffffff;
-}
+  create a class for that
+} */
 
 .table tbody tr:nth-child(even) {
   background-color: #d1e8f5;
 }
 
-#graph__x{
+#graph__x {
   display: flex;
   justify-content: space-evenly;
 }
