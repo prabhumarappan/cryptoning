@@ -3,7 +3,10 @@ import { Table } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
 
+// Class component which which use the top 10 api data to display top 10 coins
+// Home component sends the API data through props
 class Top10 extends Component {
+  // constructor to set up component and set state
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +14,7 @@ class Top10 extends Component {
     };
   }
 
+  // function to return the table heading
   getTableHeadings = () => {
     return (
       <thead>
@@ -27,28 +31,34 @@ class Top10 extends Component {
     );
   };
 
+  // helper function to return the round figure of a float upto 3 decimal points
   getRoundFigure = (num) => {
     return Math.round(num * 1000) / 1000;
   };
 
+  // helper function to return the round figure in terms of millions
   getRoundInMillion = (num) => {
     return this.getRoundFigure(num / 1000000);
   };
 
+  // helper function to return a span with the font color depending on postivie or negative change
   showPercentChange = (per) => {
     const className = per < 0 ? "text-danger" : "text-success";
     return <span className={className}>{this.getRoundFigure(per)}</span>;
   };
 
+  // helper function to return image depending on the id 
   getThumbnailImageURL = (id) => {
     const imageUrl = `https://s2.coinmarketcap.com/static/img/coins/64x64/${id}.png`;
     return imageUrl;
   };
 
+  // helper function to return the hyperlink for redirection
   getCurrencyHref = (name) => {
     return `/historical/${name}`;
   };
 
+  // main function that formats rest of the table depending on the API data
   getTableContents = () => {
     return (
       <tbody>
@@ -78,6 +88,7 @@ class Top10 extends Component {
     );
   };
 
+  // render function to return the responsive table
   render() {
     return (
       <Table responsive>

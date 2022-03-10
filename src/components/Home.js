@@ -4,8 +4,14 @@ import { Top10 } from './Top10';
 import '../css/Home.css';
 var axios = require('axios');
 
+// Component to load the main Home page 
+// Component will use lifecycle methods to load the top 10 coins
+// Then use callbacks to set state
+// The render will return a loader which will get temporarily displayed
+// until the API fetch is done and set to the state
 class Home extends Component {
 
+	// constructor to load the class component and set default state
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -14,6 +20,7 @@ class Home extends Component {
 		}
 	}
 	
+	// lifecycle method to fetch API data and store it in state
 	componentDidMount = () => {
 		// api call and add that to state
 
@@ -38,7 +45,9 @@ class Home extends Component {
 		}
 	}
 
+	// render function to return what needs to be displayed in the front end
 	render() {
+		// this part will be displayed until the API fetch is done
 		if (this.state.isLoading) {
             return (
 				<Container>
@@ -52,6 +61,7 @@ class Home extends Component {
 			);
 		}
 
+		// this part will be displayed when the API fetch is done
 		return (
 		<>
 			<Container>
