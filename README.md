@@ -18,6 +18,8 @@ Why? Because investors who actively engage in crypto with many types of cryptocu
 
 ## APIs Used
 1. Coinmarketcap -> https://coinmarketcap.com/api/
+2. Twitter -> https://developer.twitter.com/en/docs/twitter-api
+3. Cryptocompare -> https://min-api.cryptocompare.com/
 
 ## How to run locally?
 1. Add the value for `REACT_APP_CMC_API_KEY` in .env file
