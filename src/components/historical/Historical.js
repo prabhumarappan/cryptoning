@@ -18,16 +18,19 @@ function Historical(props) {
     {
       title: "Market Cop",
       price: info?.AggregatedData.MKTCAP || info?.AggregatedData.VOLUMEHOUR,
+      //either use MKTCAP data if not availabe then use volume hour
     },
     {
       title: "Fully Diluted",
       price:
         info?.AggregatedData.TOTALVOLUME24HTO || info?.AggregatedData.VOLUMEDAY,
+      //either use totalvoulme24hto data if not availabe then use volume volumeday
     },
     {
       title: "Volume",
       price:
         info?.AggregatedData.VOLUME24HOUR || info?.AggregatedData.VOLUMEHOURTO,
+      //either use volume 24 hours data if not availabe then use volume volumehourto
     },
     {
       title: "Cirulating supply",
@@ -44,6 +47,8 @@ function Historical(props) {
     { title: "Tweets", component: <Tweets slug={symbol} /> },
   ];
   const [activePage, changePage] = useState(pages[0]);
+
+  //use effect function to change state
 
   useEffect(() => {
     const fetchCurrency = async () => {

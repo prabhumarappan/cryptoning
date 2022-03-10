@@ -15,6 +15,8 @@ export function Banner({ AggregatedData, CoinInfo, Exchanges }) {
   const breadcrumbItems = ["Cryptocurrencies", FullName];
   let tagcount = 0;
   return (
+    //create table to accomodate data from api using map.
+
     <div className="banner_container">
       <div className="breadcrumb">
         <ul className="breadcrumb__lists">
@@ -48,6 +50,7 @@ export function Banner({ AggregatedData, CoinInfo, Exchanges }) {
               className="currency__icon"
               alt="Crypto Symbol"
             />
+
             <div className="currency__content">
               <p className="currency__name">
                 {FullName} <span className="currency__count">#{Id}</span>

@@ -16,6 +16,8 @@ export function Market({ marketList }) {
         </thead>
         <tbody>
           {marketList?.map((item, key) => (
+            //using map to display data for market, price and open 24 hours.
+
             <tr key={key} class="table_color">
               <td data-label="No">{key + 1}</td>
               <td data-label="Market">{item.MARKET}</td>

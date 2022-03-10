@@ -37,6 +37,8 @@ function BarGraph() {
       });
     };
 
+    //use api to fetch data for bar graph.
+
     fetch_api();
   }, [symbol]);
 
