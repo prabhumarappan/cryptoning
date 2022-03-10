@@ -61,9 +61,9 @@
   create a class for that
 } */
 
-.table tbody tr:nth-child(even) {
+/* .table tbody tr:nth-child(even) {
   background-color: #d1e8f5;
-}
+} */
 
 #graph__x {
   display: flex;
